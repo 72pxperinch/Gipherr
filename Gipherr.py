@@ -1,3 +1,5 @@
+import os
+from dotenv import load_dotenv
 from telegram.ext import Updater, CommandHandler
 from datetime import time
 from selenium import webdriver
@@ -5,8 +7,11 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 
-# Telegram Bot Token
-TOKEN = 'TELEGRAM_BOT_KEY'
+# Load environment variables from .env
+load_dotenv()
+
+# Get the Telegram Bot Token from .env
+TOKEN = os.getenv("TELEGRAM_BOT_KEY")
 
 # Dictionary to store project names and their corresponding GIF URLs
 projects = {}
